@@ -24,6 +24,10 @@
         "description": "Storage Account Type for Virtual Machines"
       }
     },
+    "encryptionEnabled": {
+            "type": "bool",
+            "defaultValue": true
+        },
     "storageAccountName": {
         "type": "string",
         "defaultValue": "newStorageAccount",
@@ -43,6 +47,15 @@
         "displayName": "Storage Account"
       },
       "properties": {
+          "encryption": {
+                    "services": {
+                        "blob": {
+                            "enabled": "[parameters('encryptionEnabled')]"
+                        },
+                        "file": null
+                    },
+                    "keySource": "Microsoft.Storage"
+                },
         "accountType": "[parameters('storageAccountType')]"
       }
     }
