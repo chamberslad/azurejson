@@ -49,6 +49,7 @@
       "tags":{
         "displayName": "Storage Account"
       },
+      "kind": "Storage",
       "properties": {
         "accountType": "[parameters('accountType')]",
         "encryption": {
