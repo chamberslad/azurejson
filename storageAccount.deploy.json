@@ -12,7 +12,7 @@
         "description": "A reference to a resource location"
       }
     },
-    "storageAccountType": {
+    "accountType": {
       "type": "string",
       "defaultValue": "Standard_LRS",
       "allowedValues": [
@@ -47,7 +47,7 @@
         "displayName": "Storage Account"
       },
       "properties": {
-        "accountType": "[parameters('storageAccountType')]",
+        "accountType": "[parameters('accountType')]",
         "encryption": {
                     "services": {
                         "blob": {
