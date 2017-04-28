@@ -24,6 +24,10 @@
         "description": "Storage Account Type for Virtual Machines"
       }
     },
+    "encryptionEnabled": {
+            "type": "bool",
+            "defaultValue": false
+        },
     "storageAccountName": {
         "type": "string",
         "defaultValue": "newStorageAccount",
@@ -37,13 +41,22 @@
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[parameters('storageAccountName')]",
-      "apiVersion": "2015-05-01-preview",
+      "apiVersion": "2016-01-01",
       "location": "[parameters('resourceGroupLocation')]",
       "tags":{
         "displayName": "Storage Account"
       },
       "properties": {
-        "accountType": "[parameters('storageAccountType')]"
+        "accountType": "[parameters('storageAccountType')]",
+        "encryption": {
+                    "services": {
+                        "blob": {
+                            "enabled": "[parameters('encryptionEnabled')]"
+                        },
+                        "file": null
+                    },
+                    "keySource": "Microsoft.Storage"
+                }
       }
     }
   ],
