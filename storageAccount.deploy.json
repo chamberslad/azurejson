@@ -41,7 +41,7 @@
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[parameters('storageAccountName')]",
-      "apiVersion": "2015-05-01-preview",
+      "apiVersion": "2016-08-01",
       "location": "[parameters('resourceGroupLocation')]",
       "tags":{
         "displayName": "Storage Account"
