@@ -26,7 +26,7 @@
     },
     "encryptionEnabled": {
             "type": "bool",
-            "defaultValue": true
+            "defaultValue": false
         },
     "storageAccountName": {
         "type": "string",
