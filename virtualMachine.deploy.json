@@ -251,10 +251,7 @@
             "location": "[parameters('resourceGroupLocation')]",
             "dependsOn": [],
             "properties": {
-                "availabilitySet": {
-                    "id": "[resourceId(parameters('resourceGroupName'),'Microsoft.Compute/availabilitySets',parameters('availabilitySetName'))]"
-                },
-                "hardwareProfile": {
+                 "hardwareProfile": {
                     "vmSize": "[parameters('vmSize')]"
                 },
                 "osProfile": {
