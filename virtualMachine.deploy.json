@@ -59,6 +59,10 @@
             "type": "string", 
             "metadata": {"description": "Hostname for Operating System"}
         }, 
+        "availabilitySetName": {
+            "type": "string", 
+            "metadata": {"description": "Name of Availablity Set"}
+        }, 
         "nicName" : {
             "type": "string", 
             "metadata": {"description": "Name of Network Interface for Virtual Machine"}
@@ -247,6 +251,9 @@
             "location": "[parameters('resourceGroupLocation')]",
             "dependsOn": [],
             "properties": {
+                "availabilitySet": {
+                    "id": "[resourceId(parameters('resourceGroupName'),'Microsoft.Compute/availabilitySets',parameters('availabilitySetName'))]"
+                },
                 "hardwareProfile": {
                     "vmSize": "[parameters('vmSize')]"
                 },
