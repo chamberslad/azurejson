@@ -32,7 +32,7 @@
             "type": "string",
             "defaultValue": "2012-R2-Datacenter",
             "allowedValues": [
-                "2012-R2-Datacenter"
+                "2012-R2-Datacenter",
                 "2016-Datacenter"
             ],
             "metadata": {"description": "Image SKU"}
