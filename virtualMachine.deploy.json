@@ -262,10 +262,7 @@
                 "osProfile": {
                     "computerName": "[parameters('osName')]",
                     "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]",
-                    "windowsConfiguration": {
-                        "timeZone": "[parameters('timeZone')]"
-                    }  
+                    "adminPassword": "[parameters('adminPassword')]"
                 },
                 "storageProfile": {
                     "imageReference": {
