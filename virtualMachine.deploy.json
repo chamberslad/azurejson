@@ -276,10 +276,6 @@
                     },
                     "osDisk": {
                         "name": "osdisk",
-                        "vhd": {
-                            "uri": "[concat(parameters('standardStoragePath'),'/vhds/',parameters('vmName'), '-osdisk.vhd')]"
-                        },
-                        "caching": "ReadWrite",
                         "createOption": "FromImage"
                     },
                     "dataDisks": "[take(variables('dataDiskArray'),parameters('dataDiskCount'))]"
