@@ -31,12 +31,18 @@
     {
       "type": "Microsoft.Compute/availabilitySets",
       "name": "[concat(parameters('availabilitySetName'), parameters('availabilitySetSuffix'))]",
-      "apiVersion": "2015-05-01-preview",
+      "apiVersion": "2018-10-01",
       "location": "[parameters('resourceGroupLocation')]",
       "tags":{
         "displayName": "Availability Set"
       },
-      "properties": {}
+      "properties": {
+        "PlatformUpdateDomainCount": 3,
+        "PlatformFaultDomainCount": 2
+      },
+        "sku": {
+    "name": "aligned"
+  }
     }
   ],
   "outputs": {
