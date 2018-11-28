@@ -53,7 +53,7 @@
     {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/networkInterfaces",
-      "name": "[concat(parameters('nicName'), '-', padLeft(copyIndex(1), 2, '0'), parameters('nicSuffix'))]",
+      "name": "[concat(parameters('nicName'), '0', padLeft(copyIndex(1), 2, '0'), parameters('nicSuffix'))]",
       "location": "[parameters('resourceGroupLocation')]",
       "copy": {
         "name" : "nicLoop",
@@ -76,14 +76,14 @@
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "name": "[concat(parameters('nicName'), '-', padLeft(copyIndex(1), 2, '0'), '-staticIPDeployment')]",
+      "name": "[concat(parameters('nicName'), '0', padLeft(copyIndex(1), 2, '0'), '-staticIPDeployment')]",
       "apiVersion": "2015-01-01",
       "copy": {
         "name" : "staticLoop",
         "count" : "[parameters('instanceCount')]"
       },      
       "dependsOn": [
-        "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'), '-', padleft(copyindex(1), 2, '0'),parameters('nicSuffix'))]"
+        "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'), '0', padleft(copyindex(1), 2, '0'),parameters('nicSuffix'))]"
       ],
       "properties": {
         "mode": "Incremental",
@@ -93,11 +93,11 @@
         },
         "parameters": {
             "subnetRef": {"value": "[parameters('subnetRef')]"},
-            "nicName": {"value": "[concat(parameters('nicName'), '-', padLeft(copyIndex(1), 2, '0'),parameters('nicSuffix'))]"}, 
+            "nicName": {"value": "[concat(parameters('nicName'), '0', padLeft(copyIndex(1), 2, '0'),parameters('nicSuffix'))]"}, 
             "resourceGroupName": {"value": "[parameters('resourceGroupName')]"},             
             "resourceGroupLocation": {"value": "[parameters('resourceGroupLocation')]"},
             "ipAddress" : {
-                "value": "[reference(concat('Microsoft.Network/networkInterfaces/', parameters('nicName'), '-', padleft(copyindex(1), 2, '0'),parameters('nicSuffix'))).ipConfigurations[0].properties.privateIPAddress]"
+                "value": "[reference(concat('Microsoft.Network/networkInterfaces/', parameters('nicName'), '0', padleft(copyindex(1), 2, '0'),parameters('nicSuffix'))).ipConfigurations[0].properties.privateIPAddress]"
             }              
         }
       }
